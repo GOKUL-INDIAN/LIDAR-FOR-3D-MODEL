@@ -1,1 +1,2 @@
 # LIDAR-FOR-3D-MODEL
+This project presents the design and implementation of a low-cost, microcontroller-based 3D LiDAR scanner. The system uses laser-based ranging to generate point cloud data representing objects in three-dimensional (X, Y, Z) space. It scans from 0° to 180° in the X direction and 26° to 125° in the Y direction, with a detection range of up to 1.2 meters. Real-time distance and angle data are displayed on an LCD. All components are implemented using SMD packages for compact design and portability.
