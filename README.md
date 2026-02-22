@@ -1,17 +1,24 @@
 # LIDAR-FOR-3D-MODEL
 This project presents the design and implementation of a low-cost, microcontroller-based 3D LiDAR scanner. The system uses laser-based ranging to generate point cloud data representing objects in three-dimensional (X, Y, Z) space. It scans from 0° to 180° in the X direction and 26° to 125° in the Y direction, with a detection range of up to 1.2 meters. Real-time distance and angle data are displayed on an LCD. All components are implemented using SMD packages for compact design and portability.
+<p align="center">
+  <img src="full block diagram.jpg" width="600">
+</p>
 
 # PROCESSING UNIT
 
 The ATmega328P microcontroller serves as the central processing unit of the system. It receives input signals from the LiDAR sensor and control switches through its input pins. The controller processes the acquired data, performs the required computations, and transmits the processed output to the PC, LCD display, and Bluetooth module.
-
+<p align="center">
+  <img src="main prcocessor circuit.jpg" width="600">
+</p>
 Capacitors are incorporated to suppress noise and ensure stable circuit operation. Resistors in the switch network are used to generate distinct voltage levels corresponding to different switch activations.
 
 In terms of specifications, the ATmega328P is an 8-bit AVR RISC-based microcontroller featuring 32 KB of Flash program memory, 2 KB of SRAM, and a total of 32 pins, including 8 analog input pins and 14 digital I/O pins. For this design, the SMD package of the ATmega328P is selected.
 
 # BATTERY MANAGEMENT CIRCUIT
 The primary power source of the device is a 3.7V lithium-ion battery. While the cell is capable of supplying the required power efficiently, it must be handled with extreme care due to safety concerns. Improper handling can lead to serious hazards, including overheating, fire, or explosion. Therefore, preventing short circuits is critically important.
-
+<p align="center">
+  <img src="battery management circuit.jpg" width="600">
+</p>
 To enhance safety, the design incorporates a protection circuit that safeguards the battery against short circuits, overcharging, and overvoltage conditions. An intelligent charging system is included to maintain optimal battery health and ensure safe charging operation.
 
 The system also features a full-charge indicator to signal when the battery has reached its maximum charge level, allowing timely disconnection from the charger. Additionally, an automatic cut-off mechanism is implemented to prevent overcharging and protect the battery from potential damage.
@@ -24,21 +31,28 @@ Together, these components provide complete protection and efficient battery man
 
 # 5VOLT BOOST CONVERTER
 This section is one of the most critical parts of the design, as it generates the required supply voltages for all system components. The device is powered by a 3.7V lithium-ion battery, ensuring portability. However, most components such as the microcontroller, LiDAR sensor, Bluetooth module, LCD, and servo motors require a 5V supply. Therefore, a boost converter is used to step up the battery voltage to a stable 5V output.
-
+<p align="center">
+  <img src="boost converter.jpg" width="600">
+</p>
 The boost converter is implemented using the MT3608 DC-DC step-up converter IC. It is a 6-pin SOT23 constant-frequency current-mode converter operating at 1.2 MHz, suitable for low-power applications. Its high switching frequency allows the use of compact, low-cost SMD inductors and capacitors. The internal soft-start feature minimizes inrush current and improves battery life.
 
 After implementation, the converter provided stable 5V output as designed. The use of shielded SMD inductors reduced noise interference, and efficient power conversion ensured low power dissipation and compact circuit size.
 # LCD CIRCUIT
 The LCD interface circuit drives a 16×2 LCD display operating at 5V, supplied by the boost converter. It consists of basic components such as resistors and capacitors, where the capacitors help reduce noise. An MMBT3904 transistor is used to control the backlight brightness of the LCD.
+<p align="center">
+  <img src="LCD circuit.jpg" width="600">
+</p>
+
 # BLUETOOTH CIRCUIT
 The Bluetooth circuit enables wireless communication between the system and a smartphone for generating object point clouds. It uses the HC-05 Bluetooth module along with supporting resistors and capacitors.
-
+<p align="center">
+  <img src="bluetooth circuit.jpg" width="600">
+</p>
 The HC-05 is a Serial Port Protocol (SPP) module that provides transparent wireless serial communication, making it easy to interface with the microcontroller and smartphone. It operates at a 3.3V supply and allows communication between serial-enabled devices via Bluetooth.
 
 A red LED on the module indicates connection status: it blinks continuously when not connected and slows to a 2-second interval after successful pairing. A BS870 MOSFET is used to digitally control the ON/OFF state of the module, while capacitors are included to minimize power supply noise.
 # USB INTERFACE
 The USB interface enables communication between the microcontroller and a PC, allowing data transfer and firmware updates. It also provides a convenient way to modify or upgrade the program when required.
-
 The interface is implemented using the CH340 USB-to-serial converter IC. This chip converts USB signals to serial communication, enabling the microcontroller to connect directly to a computer. It complies with USB 2.0 full-speed specifications and requires only minimal external components such as a crystal and capacitors.
 
 The CH340 emulates a standard serial port, making it fully compatible with Windows-based serial applications. Additionally, it can supply input power to the system from the PC through the USB connection.
@@ -75,16 +89,25 @@ The CH340 emulates a standard serial port, making it fully compatible with Windo
 - Plot points based on the received data.
 - Draw connecting lines to visualize the scanned points.
 # RANGING AN OBJECT
-
+<p align="center">
+  <img src="ranging an object testing.jpg" width="600">
+</p>
 Ranging an object means that to find out the distance at which the sensor can detect
 and scans an object accurately.
 # RANGING AND PLOTTING OF 2D SHAPE OF OBJECT
-
+<p align="center">
+  <img src="plotting 2D shape.jpg" width="600">
+</p>
 Ranging and plotting of 2D shape of object means that drawing the shape of object
 in 2D (plain) ie, in X and Z (distance to the object) axis.
 
 #  RANGING AND PLOTTING OF 3D POINT CLOUDS OF OBJECT
-
-5.3 Ranging and Plotting of 3D point clouds of object
+ Ranging and Plotting of 3D point clouds of object
+ <p align="center">
+  <img src="3D cloud.jpg" width="600">
+</p>
 Ranging and plotting of 3D point clouds of object means that drawing the shape of
 object as in 3D ie, in X, Y and Z (distance to the object) axis.
+<p align="center">
+  <img src="3D point clouds.jpg" width="600">
+</p>
