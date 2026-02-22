@@ -2,6 +2,7 @@
 This project presents the design and implementation of a low-cost, microcontroller-based 3D LiDAR scanner. The system uses laser-based ranging to generate point cloud data representing objects in three-dimensional (X, Y, Z) space. It scans from 0° to 180° in the X direction and 26° to 125° in the Y direction, with a detection range of up to 1.2 meters. Real-time distance and angle data are displayed on an LCD. All components are implemented using SMD packages for compact design and portability.
 
 # PROCESSING UNIT
+
 The ATmega328P microcontroller serves as the central processing unit of the system. It receives input signals from the LiDAR sensor and control switches through its input pins. The controller processes the acquired data, performs the required computations, and transmits the processed output to the PC, LCD display, and Bluetooth module.
 
 Capacitors are incorporated to suppress noise and ensure stable circuit operation. Resistors in the switch network are used to generate distinct voltage levels corresponding to different switch activations.
