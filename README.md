@@ -42,29 +42,37 @@ The interface is implemented using the CH340 USB-to-serial converter IC. This ch
 
 The CH340 emulates a standard serial port, making it fully compatible with Windows-based serial applications. Additionally, it can supply input power to the system from the PC through the USB connection.
 
-# PROGRAM FLOW FOR CONTROLLER
+## PROGRAM FLOW FOR THE CONTROLLER
 
-• Including necessary library files.
-• Defining the pins of LCD screen, servos, etc.
-• Defining all the necessary variables.
-• Initialization of communication to LiDAR sensor, PC and LCD.
-• Setting the angle values of servo motors to initial position (00 in X axis 260 in Y
-axis).
-• Read distance data from the sensor and send data to the PC, Bluetooth and LCD.
-• Increment the angle values of servos and read distance data again and continue it
-up to 1800 in X axis and 1250 in Y axis
+- Include required library files.
+- Define pin configurations for LCD, servos, and other peripherals.
+- Declare and initialize necessary variables.
+- Initialize communication with LiDAR sensor, PC (USB), and LCD.
+- Set servo motors to initial positions:
+  - X-axis: 0°
+  - Y-axis: 260°
+- Read distance data from the LiDAR sensor.
+- Transmit distance data to:
+  - PC
+  - Bluetooth module
+  - LCD display
+- Increment servo angles.
+- Repeat distance measurement and data transmission.
+- Continue scanning up to:
+  - X-axis: 180°
+  - Y-axis: 125°
 
-# PROGRAM FLOW FOR PROCESSING SOFTWARE
+## PROGRAM FLOW FOR THE PROCESSING SOFTWARE
 
-• Importing required library files.
-• Defining all the necessary variables.
-• Define the serial ports for input data.
-• Initialization of input port.
-• Splitting the received data into three components.
-• Saving the splitted data into 3 variable.
-• Draw a line to show the added scan points.
-• Draw points against received data
-
+- Import required library files.
+- Define and initialize necessary variables.
+- Configure serial port for receiving input data.
+- Initialize the serial communication port.
+- Receive data from the controller.
+- Split the received data into three components (e.g., X, Y, Distance).
+- Store the split values into separate variables.
+- Plot points based on the received data.
+- Draw connecting lines to visualize the scanned points.
 # RANGING AN OBJECT
 
 Ranging an object means that to find out the distance at which the sensor can detect
